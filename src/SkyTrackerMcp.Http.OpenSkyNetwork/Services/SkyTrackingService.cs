@@ -79,7 +79,7 @@ internal class SkyTrackingService : ISkyTrackingService
         }
     }
     
-        public async Task<OpenSkyState?> GetFlightByIcaoAsync(string icao24)
+    public async Task<OpenSkyState?> GetFlightByIcaoAsync(string icao24)
     {
         try
         {
