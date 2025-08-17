@@ -1,5 +1,5 @@
 # Sky Tracker MCP
-Sky Tracker [MCP](https://de.wikipedia.org/wiki/Model_Context_Protocol) is a .NET-based application designed to interact with flight data from [OpenSky Network API](https://opensky-network.org/data/api). It provides mcp tooling to integrate the api with an mcp client such as [Visual Studio Code](https://code.visualstudio.com/download), [Claude Desktop](https://claude.ai/download) or any other compatible client.
+Sky Tracker [MCP](https://de.wikipedia.org/wiki/Model_Context_Protocol) is a .NET-based application designed to interact with flight data from [OpenSky Network API](https://opensky-network.org/data/api) and [FlightDB](https://www.flightdb.net/). It provides mcp tooling to integrate the api with an mcp client such as [Visual Studio Code](https://code.visualstudio.com/download), [Claude Desktop](https://claude.ai/download) or any other compatible client.
 
 ## Getting Started
 1. Clone the repository.
