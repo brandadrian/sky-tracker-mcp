@@ -2,9 +2,13 @@ using System.ComponentModel;
 using ModelContextProtocol.Server;
 using SkyTrackerMcp.Http.OpenSkyNetwork.Services;
 using SkyTrackerMcp.Http.OpenSkyNetwork.Services.Models;
+using SkyTrackerMcp.McpTools.Exceptions;
 
 namespace SkyTrackerMcp.McpTools;
 
+/// <summary>
+/// Provides tools for interacting with the OpenSky Network.
+/// </summary>
 [McpServerToolType]
 public class SkyTrackerTools
 {
@@ -14,17 +18,14 @@ public class SkyTrackerTools
     {
         _skyTrackingService = skyTrackingService;
     }
-    
-    [McpServerTool, Description("Returns all active flights.")]
-    public async Task<List<OpenSkyState>> GetActiveFlightsAsync()
-    {
-        return await _skyTrackingService.GetActiveFlightsAsync();
-    }
-    
+        
+    /// <summary>
+    /// Get a flight by ICAO.
+    /// </summary>
+    /// <param name="icao"></param>
+    /// <returns></returns>
     [McpServerTool, Description("Returns a flight by ICAO.")]
-    public async Task<OpenSkyState?> GetFlightByIcaoAsync(
-        [Description("Name of the city to return weather for")] string icao
-        )
+    public async Task<OpenSkyState?> GetFlightByIcaoAsync([Description("Name of the city to return weather for")] string icao)
     {
         return await _skyTrackingService.GetFlightByIcaoAsync(icao);
     }
@@ -46,6 +47,23 @@ public class SkyTrackerTools
         [Description("Upper bound for the longitude in decimal degrees")] double west
         )
     {
-        return await _skyTrackingService.GetFlightsByAreaAsync(south, noth, east, west);
+        var flights = await _skyTrackingService.GetFlightsByAreaAsync(south, noth, east, west);
+        ValidateFlights(flights);
+        return flights;
+    }
+    
+    /// <summary>
+    /// It seems that the mcp client is not able to handle more than 500 flights at once.
+    /// </summary>
+    /// <param name="flights"></param>
+    /// <exception cref="InvalidOperationException"></exception>
+    private void ValidateFlights(List<OpenSkyState> flights)
+    {
+        var maxFlights = 500;
+        
+        if (flights.Count > maxFlights)
+        {
+            throw new TooManyFlightsException(flights.Count, maxFlights);
+        }
     }
 }

@@ -3,7 +3,8 @@ using System.Text.Json.Serialization;
 namespace SkyTrackerMcp.Http.OpenSkyNetwork.Services.Models;
 
 /// <summary>
-/// OpenSky Network API response model for states endpoint
+/// OpenSky Network API response model for states endpoint.
+/// Model based on https://openskynetwork.github.io/opensky-api/rest.html
 /// </summary>
 public class OpenSkyStatesResponse
 {

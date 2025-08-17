@@ -5,7 +5,10 @@ Sky Tracker [MCP](https://de.wikipedia.org/wiki/Model_Context_Protocol) is a .NE
 1. Clone the repository.
 2. Configure API keys and settings in `appsettings.json`. You can also leave it empty but with limited access to open sky api.
 3. Build and run the solution using Visual Studio or `dotnet` CLI
-4. Connect with an MCP client and chat with open sky network
+4. Connect with an MCP client and chat with open sky network. 
+
+## Limitations
+Note that getting more than 500 flights leads to wrong results of some clients. Thus it is recommended to as specific questions about an area or aircraft yet. This will be improved in future.  
 
 ## Requirements
 - .NET 8.0 SDK
