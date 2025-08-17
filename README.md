@@ -8,7 +8,7 @@ Sky Tracker [MCP](https://de.wikipedia.org/wiki/Model_Context_Protocol) is a .NE
 4. Connect with an MCP client and chat with open sky network. 
 
 ## Limitations
-Note that getting more than 500 flights leads to wrong results of some clients. Thus it is recommended to as specific questions about an area or aircraft yet. This will be improved in future.  
+Note that getting more than 500 flights leads to wrong results of some clients. Thus it is recommended to ask specific questions about an area or aircraft yet. This will be improved in future.  
 
 ## Requirements
 - .NET 8.0 SDK

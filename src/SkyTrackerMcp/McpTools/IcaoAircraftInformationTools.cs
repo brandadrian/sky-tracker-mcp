@@ -49,7 +49,7 @@ public class IcaoAircraftInformationTools
         }
     }
 
-        [McpServerTool, Description("Get aircraft information for multiple ICAO codes from FlightDB")]
+    [McpServerTool, Description("Get aircraft information for multiple ICAO codes from FlightDB")]
     public async Task<Dictionary<string, string>> GetMultipleAircraftInfoAsync(
         [Description("List of ICAO codes (e.g., ['4406f0', '440123', '440456'])")] List<string> icaoCodes)
     {
